@@ -15,5 +15,8 @@ db.all("SELECT * FROM classes", function(err, rows) {
         console.log(a, b, c, d);
     })
 });
-
+// next steps: grab the data from the sql pull
+// dress it with html
+// push it out to the web page using express.js
+// FINI!!!
 db.close();
