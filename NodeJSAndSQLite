@@ -1,0 +1,29 @@
+var sqlite3 = require('sqlite3');
+var srecord;
+var a;
+var b;
+let record = class {
+    constructor(studentID, studentName) {
+        this.ID = studentID;
+        this.name = studentName;
+    }
+};
+
+var dataRecords = new Array();
+
+var file = "peter001.db";
+var db = new sqlite3.Database(file);
+db.all("SELECT * FROM students", function(err, rows) {
+    rows.forEach(function(row) {
+        a = row.studentID;
+        b = row.studentname;
+        sRecord = new record(a, b);
+        dataRecords.push(sRecord);
+    })
+});
+
+db.close();
+
+for (i = 0; i < dataRecords.length; i++) {
+    console.write(dataRecords[i].studentID);
+}
